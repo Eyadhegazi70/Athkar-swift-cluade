@@ -25,7 +25,7 @@ jobs:
       - name: Generate Xcode Project
         run: xcodegen generate
 
-      - name: Build and Archive App for Real Device
+      - name: Build App for Real Device
         run: |
           xcodebuild -project AthkarApp.xcodeproj \
                      -scheme AthkarApp \
@@ -35,13 +35,12 @@ jobs:
                      CODE_SIGN_IDENTITY="" \
                      CODE_SIGNING_REQUIRED=NO \
                      CODE_SIGN_ALLOWED=NO \
-                     archive -archivePath .build/AthkarApp.xcarchive
+                     build
 
       - name: Export IPA
         run: |
-          # إنشاء مجلد البيلد وتصدير ملف الـ .app لفكره وتحويله لـ IPA
           mkdir -p .build/Payload
-          cp -r .build/AthkarApp.xcarchive/Products/Applications/*.app .build/Payload/
+          cp -r .build/Build/Products/Release-iphoneos/*.app .build/Payload/
           cd .build && zip -r AthkarApp.ipa Payload
           cd ..
 
