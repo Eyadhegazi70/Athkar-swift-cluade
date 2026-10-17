@@ -8,20 +8,6 @@ targets:
     deploymentTarget: "17.0"
     sources:
       - path: .
-        includes:
-          - "*.swift"
-    resources:
-      - path: Web
-    info:
-      properties:
-        CFBundleIdentifier: com.eyad.AthkarApp
-        CFBundleShortVersionString: "1.0"
-        CFBundleVersion: "1"
-        UILaunchScreen: {}
-        UIRequiredDeviceCapabilities:
-          - armv7
-        UISupportedInterfaceOrientations:
-          - UIInterfaceOrientationPortrait
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.eyad.AthkarApp
       CODE_SIGN_STYLE: Automatic
